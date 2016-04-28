@@ -1,0 +1,32 @@
+@CHARSET "UTF-8";
+html, body {
+	height: 100%;
+	background:url("/Static/images/login_bj.jpg") top center no-repeat; 
+	background-size:cover;
+}
+
+.box {
+	margin: 0 auto;
+	position: relative;
+	width: 100%;
+	height: 100%;
+}
+
+.form-control, .input-group {
+	height: 40px;
+}
+
+.input-group {
+	margin: 0px 0px 30px 0px !important;
+}
+
+.login-box {
+	left: 60%;
+	margin-left: -250px;
+	width: 100%;
+	max-width: 400px;
+	height: 300px;
+	position: absolute;
+	top: 40%;
+    background-color: rgba(239, 234, 232, 0.35);
+}

@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.hk515.SQLHK.dao.IUsers_tblDao">
+	<resultMap id="BaseResultMap" type="com.hk515.SQLHK.pojo.Users_tbl">
+		<id column="Users_tbl_Id" property="usersTblId" jdbcType="VARCHAR" />
+		<result column="RealName" property="realname" jdbcType="VARCHAR" />
+		<result column="LoginName" property="loginname" jdbcType="VARCHAR" />
+		<result column="PassWord" property="password" jdbcType="VARCHAR" />
+		<result column="Description" property="description" jdbcType="VARCHAR" />
+		<result column="Phone" property="phone" jdbcType="VARCHAR" />
+		<result column="Email" property="email" jdbcType="VARCHAR" />
+		<result column="Isvalid" property="isvalid" jdbcType="BIT" />
+		<result column="FaceImg" property="faceimg" jdbcType="VARCHAR" />
+		<result column="IsDelete" property="isdelete" jdbcType="BIT" />
+		<result column="CreateUserId" property="createuserid" jdbcType="VARCHAR" />
+		<result column="CreateDateTime" property="createdatetime"
+			jdbcType="TIMESTAMP" />
+		<result column="UpdateUserId" property="updateuserid" jdbcType="VARCHAR" />
+		<result column="UpdateDateTime" property="updatedatetime"
+			jdbcType="TIMESTAMP" />
+	</resultMap>
+	<sql id="Base_Column_List">
+		Users_tbl_Id, RealName, LoginName, PassWord, Description,
+		Phone, Email, Isvalid,
+		FaceImg, IsDelete, CreateUserId, CreateDateTime,
+		UpdateUserId,
+		UpdateDateTime
+	</sql>
+	<select id="selectByPrimaryKey" resultMap="BaseResultMap"
+		parameterType="java.lang.String">
+		select
+		<include refid="Base_Column_List" />
+		from Users_tbl
+		where Users_tbl_Id = #{usersTblId,jdbcType=VARCHAR}
+	</select>
+	<delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+		delete from
+		Users_tbl
+		where Users_tbl_Id = #{usersTblId,jdbcType=VARCHAR}
+	</delete>
+	<insert id="insert" parameterType="com.hk515.SQLHK.pojo.Users_tbl">
+		insert into Users_tbl
+		(Users_tbl_Id, RealName, LoginName,
+		PassWord, Description, Phone,
+		Email, Isvalid, FaceImg,
+		IsDelete, CreateUserId, CreateDateTime,
+		UpdateUserId, UpdateDateTime)
+		values (#{usersTblId,jdbcType=VARCHAR},
+		#{realname,jdbcType=VARCHAR},
+		#{loginname,jdbcType=VARCHAR},
+		#{password,jdbcType=VARCHAR}, #{description,jdbcType=VARCHAR},
+		#{phone,jdbcType=VARCHAR},
+		#{email,jdbcType=VARCHAR},
+		#{isvalid,jdbcType=BIT},
+		#{faceimg,jdbcType=VARCHAR},
+		#{isdelete,jdbcType=BIT}, #{createuserid,jdbcType=VARCHAR},
+		#{createdatetime,jdbcType=TIMESTAMP},
+		#{updateuserid,jdbcType=VARCHAR},
+		#{updatedatetime,jdbcType=TIMESTAMP})
+	</insert>
+	<insert id="insertSelective" parameterType="com.hk515.SQLHK.pojo.Users_tbl">
+		insert into Users_tbl
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="usersTblId != null">
+				Users_tbl_Id,
+			</if>
+			<if test="realname != null">
+				RealName,
+			</if>
+			<if test="loginname != null">
+				LoginName,
+			</if>
+			<if test="password != null">
+				PassWord,
+			</if>
+			<if test="description != null">
+				Description,
+			</if>
+			<if test="phone != null">
+				Phone,
+			</if>
+			<if test="email != null">
+				Email,
+			</if>
+			<if test="isvalid != null">
+				Isvalid,
+			</if>
+			<if test="faceimg != null">
+				FaceImg,
+			</if>
+			<if test="isdelete != null">
+				IsDelete,
+			</if>
+			<if test="createuserid != null">
+				CreateUserId,
+			</if>
+			<if test="createdatetime != null">
+				CreateDateTime,
+			</if>
+			<if test="updateuserid != null">
+				UpdateUserId,
+			</if>
+			<if test="updatedatetime != null">
+				UpdateDateTime,
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="usersTblId != null">
+				#{usersTblId,jdbcType=VARCHAR},
+			</if>
+			<if test="realname != null">
+				#{realname,jdbcType=VARCHAR},
+			</if>
+			<if test="loginname != null">
+				#{loginname,jdbcType=VARCHAR},
+			</if>
+			<if test="password != null">
+				#{password,jdbcType=VARCHAR},
+			</if>
+			<if test="description != null">
+				#{description,jdbcType=VARCHAR},
+			</if>
+			<if test="phone != null">
+				#{phone,jdbcType=VARCHAR},
+			</if>
+			<if test="email != null">
+				#{email,jdbcType=VARCHAR},
+			</if>
+			<if test="isvalid != null">
+				#{isvalid,jdbcType=BIT},
+			</if>
+			<if test="faceimg != null">
+				#{faceimg,jdbcType=VARCHAR},
+			</if>
+			<if test="isdelete != null">
+				#{isdelete,jdbcType=BIT},
+			</if>
+			<if test="createuserid != null">
+				#{createuserid,jdbcType=VARCHAR},
+			</if>
+			<if test="createdatetime != null">
+				#{createdatetime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="updateuserid != null">
+				#{updateuserid,jdbcType=VARCHAR},
+			</if>
+			<if test="updatedatetime != null">
+				#{updatedatetime,jdbcType=TIMESTAMP},
+			</if>
+		</trim>
+	</insert>
+	<update id="updateByPrimaryKeySelective" parameterType="com.hk515.SQLHK.pojo.Users_tbl">
+		update Users_tbl
+		<set>
+			<if test="realname != null">
+				RealName = #{realname,jdbcType=VARCHAR},
+			</if>
+			<if test="loginname != null">
+				LoginName = #{loginname,jdbcType=VARCHAR},
+			</if>
+			<if test="password != null">
+				PassWord = #{password,jdbcType=VARCHAR},
+			</if>
+			<if test="description != null">
+				Description = #{description,jdbcType=VARCHAR},
+			</if>
+			<if test="phone != null">
+				Phone = #{phone,jdbcType=VARCHAR},
+			</if>
+			<if test="email != null">
+				Email = #{email,jdbcType=VARCHAR},
+			</if>
+			<if test="isvalid != null">
+				Isvalid = #{isvalid,jdbcType=BIT},
+			</if>
+			<if test="faceimg != null">
+				FaceImg = #{faceimg,jdbcType=VARCHAR},
+			</if>
+			<if test="isdelete != null">
+				IsDelete = #{isdelete,jdbcType=BIT},
+			</if>
+			<if test="createuserid != null">
+				CreateUserId = #{createuserid,jdbcType=VARCHAR},
+			</if>
+			<if test="createdatetime != null">
+				CreateDateTime = #{createdatetime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="updateuserid != null">
+				UpdateUserId = #{updateuserid,jdbcType=VARCHAR},
+			</if>
+			<if test="updatedatetime != null">
+				UpdateDateTime = #{updatedatetime,jdbcType=TIMESTAMP},
+			</if>
+		</set>
+		where Users_tbl_Id = #{usersTblId,jdbcType=VARCHAR}
+	</update>
+	<update id="updateByPrimaryKey" parameterType="com.hk515.SQLHK.pojo.Users_tbl">
+		update Users_tbl
+		set RealName = #{realname,jdbcType=VARCHAR},
+		LoginName =
+		#{loginname,jdbcType=VARCHAR},
+		PassWord = #{password,jdbcType=VARCHAR},
+		Description = #{description,jdbcType=VARCHAR},
+		Phone =
+		#{phone,jdbcType=VARCHAR},
+		Email = #{email,jdbcType=VARCHAR},
+		Isvalid =
+		#{isvalid,jdbcType=BIT},
+		FaceImg = #{faceimg,jdbcType=VARCHAR},
+		IsDelete = #{isdelete,jdbcType=BIT},
+		CreateUserId =
+		#{createuserid,jdbcType=VARCHAR},
+		CreateDateTime =
+		#{createdatetime,jdbcType=TIMESTAMP},
+		UpdateUserId =
+		#{updateuserid,jdbcType=VARCHAR},
+		UpdateDateTime =
+		#{updatedatetime,jdbcType=TIMESTAMP}
+		where Users_tbl_Id =
+		#{usersTblId,jdbcType=VARCHAR}
+	</update>
+	<select id="login" parameterType="com.hk515.SQLHK.pojo.Users_tbl"
+		resultType="Boolean">
+		<![CDATA[ SELECT COUNT(1) FROM (SELECT Users_tbl_Id FROM Users_tbl a WHERE LoginName=#{loginname} AND PASSWORD=#{password} AND IsDelete=0 LIMIT 1) AS a ]]>
+
+	</select>
+	<select id="selectDatabaseList" parameterType="com.hk515.SQLHK.pojo.Users_tbl"
+		resultType="String">
+		SHOW DATABASES
+	</select>
+</mapper>
